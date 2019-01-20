@@ -469,7 +469,19 @@ public class ApiDocService {
                 // 即：重名相同但是参数列表不同（参数的类型 数量 顺序不同）
                 Method method = getMethod(claszz, methodName);
                 if (method != null) {
-                    String mapping = SpringUtil.getMapping(claszz) + SpringUtil.getMapping(method);//url 映射 mapping 为类上的mapping+方法上的mapping
+                    String classMapping = SpringUtil.getMapping(claszz);
+                    if (classMapping==null){
+                        classMapping="";
+                    }else if(classMapping.indexOf(0)!='/'){
+                        classMapping="/"+classMapping;
+                    }
+                    String methodMapping = SpringUtil.getMapping(method);
+                    if (methodMapping==null){
+                        methodMapping="";
+                    }else if(methodMapping.indexOf(0)!='/'){
+                        methodMapping="/"+methodMapping;
+                    }
+                    String mapping = classMapping+methodMapping;//url 映射 mapping 为类上的mapping+方法上的mapping
                     String requestMethod = SpringUtil.getRequestMethod(method);//请求方式
                     String description = apidocActionDao.selectDescriptionById(id);
                     //请求参数和响应参数
