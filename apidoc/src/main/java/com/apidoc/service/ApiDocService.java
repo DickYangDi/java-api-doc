@@ -472,13 +472,13 @@ public class ApiDocService {
                     String classMapping = SpringUtil.getMapping(claszz);
                     if (classMapping==null){
                         classMapping="";
-                    }else if(classMapping.indexOf(0)!='/'){
+                    }else if(classMapping.charAt(0)!='/'){
                         classMapping="/"+classMapping;
                     }
                     String methodMapping = SpringUtil.getMapping(method);
                     if (methodMapping==null){
                         methodMapping="";
-                    }else if(methodMapping.indexOf(0)!='/'){
+                    }else if(methodMapping.charAt(0)!='/'){
                         methodMapping="/"+methodMapping;
                     }
                     String mapping = classMapping+methodMapping;//url 映射 mapping 为类上的mapping+方法上的mapping
