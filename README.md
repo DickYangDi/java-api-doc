@@ -1,5 +1,6 @@
 # java-api-doc
  励志做java届最好的文档生成工具，自动解析代码生成api接口文档，前后台分离开发的福音，零代码入侵，零注释入侵
+ 基于springboot+mybatis-plus开发。mybatis-plus介绍https://mp.baomidou.com/
 
 # 解决的痛点
 
